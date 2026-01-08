@@ -1,10 +1,3 @@
-import { type ClassValue } from 'clsx';
-
-// Utility to merge class names
-export function cn(...inputs: ClassValue[]) {
-    return inputs.filter(Boolean).join(' ');
-}
-
 // Format price to currency
 export function formatPrice(price: number): string {
     return new Intl.NumberFormat('en-US', {
@@ -12,7 +5,6 @@ export function formatPrice(price: number): string {
         currency: 'USD',
     }).format(price);
 }
-
 // Format date
 export function formatDate(date: string): string {
     return new Intl.DateTimeFormat('en-US', {
