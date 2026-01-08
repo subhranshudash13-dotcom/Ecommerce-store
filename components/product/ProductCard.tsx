@@ -44,26 +44,26 @@ export default function ProductCard({ product }: ProductCardProps) {
                     className={styles.image}
                 />
                 {discount > 0 && (
-                    <div className={styles.discountBadge}>
-                        <Badge variant="error">
-                            -{discount}%
-                        </Badge>
-                    </div>
-                )}
-                {product.stock < 10 && product.stock > 0 && (
-                    <div className={styles.stockBadge}>
-                        <Badge variant="warning">
-                            Only {product.stock} left
-                        </Badge>
-                    </div>
-                )}
-                {product.stock === 0 && (
-                    <div className={styles.stockBadge}>
-                        <Badge variant="default">
-                            Out of Stock
-                        </Badge>
-                    </div>
-                )}
+    <div className={styles.discountBadge}>
+        <Badge variant="error">
+            -{discount}%
+        </Badge>
+    </div>
+)}
+{product.stock < 10 && product.stock > 0 && (
+    <div className={styles.stockBadge}>
+        <Badge variant="warning">
+            Only {product.stock} left
+        </Badge>
+    </div>
+)}
+{product.stock === 0 && (
+    <div className={styles.stockBadge}>
+        <Badge variant="default">
+            Out of Stock
+        </Badge>
+    </div>
+)}
                 <button
                     className={`${styles.wishlistButton} ${inWishlist ? styles.active : ''}`}
                     onClick={handleToggleWishlist}
