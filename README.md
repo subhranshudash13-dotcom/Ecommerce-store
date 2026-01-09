@@ -197,22 +197,6 @@ Both use localStorage for persistence:
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
-
-**Quick Deploy:** See detailed guide in [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md)
-
-1. Push your code to GitHub
-2. Import project in Vercel
-3. Configure environment variables
-4. Deploy
-
-```bash
-# Or use Vercel CLI
-npm i -g vercel
-vercel
-```
-
-Your store will be live at: `https://your-store.vercel.app`
-
 ### Other Platforms
 
 The app can be deployed to:
@@ -307,7 +291,7 @@ This project is open source and available under the MIT License.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request. The contributors with the best sollutions to issues will be awarded as well as their pull requests will get merged if solving a problem.
 
 ## 📧 Support
 
@@ -319,7 +303,6 @@ For support, email support@shophub.com or open an issue in the repository.
 - Icons by Lucide
 - Images from Unsplash
 - Typography by Google Fonts
-
 ---
 
-**Built with ❤️ using Next.js and TypeScript**
+**Built with ❤️ by SSD using Next.js and TypeScript**
