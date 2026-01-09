@@ -14,7 +14,9 @@ import {
     Moon,
     LogOut,
     Package,
-    Settings
+    Settings,
+    Droplets,
+    Sunset
 } from 'lucide-react';
 import styles from './Header.module.css';
 import { useAuth } from '@/lib/AuthContext';
@@ -49,6 +51,16 @@ export default function Header() {
         }
     };
 
+    const getThemeIcon = () => {
+        switch (theme) {
+            case 'light': return <Sun size={20} strokeWidth={2.5} />;
+            case 'dark': return <Moon size={20} strokeWidth={2.5} />;
+            case 'ocean': return <Droplets size={20} strokeWidth={2.5} />;
+            case 'sunset': return <Sunset size={20} strokeWidth={2.5} />;
+            default: return <Sun size={20} strokeWidth={2.5} />;
+        }
+    };
+
     return (
         <header className={styles.header}>
             <div className={styles.topBar}>
@@ -61,9 +73,10 @@ export default function Header() {
                             <button
                                 className={styles.themeToggle}
                                 onClick={toggleTheme}
-                                aria-label="Toggle theme"
+                                aria-label={`Current theme: ${theme}. Click to switch theme.`}
+                                title="Switch Theme"
                             >
-                                {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+                                {getThemeIcon()}
                             </button>
                         </div>
                     </div>
@@ -78,7 +91,7 @@ export default function Header() {
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             aria-label="Toggle menu"
                         >
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                            {mobileMenuOpen ? <X size={24} strokeWidth={2.5} /> : <Menu size={24} strokeWidth={2.5} />}
                         </button>
 
                         <Link href="/" className={styles.logo}>
@@ -86,7 +99,7 @@ export default function Header() {
                         </Link>
 
                         <form className={styles.searchBar} onSubmit={handleSearch}>
-                            <Search className={styles.searchIcon} size={20} />
+                            <Search className={styles.searchIcon} size={20} strokeWidth={2.5} />
                             <input
                                 type="text"
                                 placeholder="Search products..."
@@ -98,14 +111,14 @@ export default function Header() {
 
                         <div className={styles.actions}>
                             <Link href="/wishlist" className={styles.iconButton}>
-                                <Heart size={22} />
+                                <Heart size={22} strokeWidth={2.5} />
                                 {wishlistItems.length > 0 && (
                                     <span className={styles.badge}>{wishlistItems.length}</span>
                                 )}
                             </Link>
 
                             <Link href="/cart" className={styles.iconButton}>
-                                <ShoppingCart size={22} />
+                                <ShoppingCart size={22} strokeWidth={2.5} />
                                 {itemCount > 0 && (
                                     <span className={styles.badge}>{itemCount}</span>
                                 )}
@@ -120,7 +133,7 @@ export default function Header() {
                                         {user?.avatar ? (
                                             <img src={user.avatar} alt={user.name} className={styles.avatar} />
                                         ) : (
-                                            <User size={22} />
+                                            <User size={22} strokeWidth={2.5} />
                                         )}
                                     </button>
 
@@ -132,15 +145,15 @@ export default function Header() {
                                             </div>
                                             <div className={styles.divider}></div>
                                             <Link href="/dashboard" className={styles.dropdownItem}>
-                                                <User size={18} />
+                                                <User size={18} strokeWidth={2.5} />
                                                 Dashboard
                                             </Link>
                                             <Link href="/orders" className={styles.dropdownItem}>
-                                                <Package size={18} />
+                                                <Package size={18} strokeWidth={2.5} />
                                                 Orders
                                             </Link>
                                             <Link href="/settings" className={styles.dropdownItem}>
-                                                <Settings size={18} />
+                                                <Settings size={18} strokeWidth={2.5} />
                                                 Settings
                                             </Link>
                                             <div className={styles.divider}></div>
@@ -151,7 +164,7 @@ export default function Header() {
                                                     setUserMenuOpen(false);
                                                 }}
                                             >
-                                                <LogOut size={18} />
+                                                <LogOut size={18} strokeWidth={2.5} />
                                                 Logout
                                             </button>
                                         </div>
@@ -189,7 +202,7 @@ export default function Header() {
                 <div className={styles.mobileMenu}>
                     <div className={styles.mobileMenuContent}>
                         <form className={styles.mobileSearch} onSubmit={handleSearch}>
-                            <Search className={styles.searchIcon} size={20} />
+                            <Search className={styles.searchIcon} size={20} strokeWidth={2.5} />
                             <input
                                 type="text"
                                 placeholder="Search products..."
